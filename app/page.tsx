@@ -1,5 +1,6 @@
 import Banner from "@/components/banner/banner";
 import Navbar from "@/components/shared/navbar/navbar";
+import UpcomingMovies from "@/components/upcoming-movies/upcoming-movies";
 
 export default function Home() {
   return (
@@ -13,6 +14,9 @@ export default function Home() {
       <div>
         {/* banner */}
         <Banner />
+
+        {/* upcoming movies */}
+        <UpcomingMovies />
       </div>
     </div>
   );
