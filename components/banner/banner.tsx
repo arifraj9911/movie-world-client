@@ -17,10 +17,10 @@ export default function Banner() {
     },
   ];
   return (
-    <div className="max-w-[1440px] mx-auto px-6 py-20  flex flex-col md:flex-row items-center justify-center gap-10">
+    <div className="max-w-[1440px] mx-auto px-6 py-20  flex flex-col md:flex-row items-center justify-between gap-10">
       {/* banner text */}
       <div className="flex-1 max-w-lg ">
-        <h1 className="uppercase text-6xl leading-[80px] font-bold text-blue-500">
+        <h1 className="uppercase text-7xl leading-[80px] font-bold text-blue-500">
           Best way of <br /> entertainment
         </h1>
 

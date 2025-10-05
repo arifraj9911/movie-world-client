@@ -43,7 +43,7 @@ export function BannerSlider({ movies }: BannerSliderProps) {
         <CarouselContent>
           {movies.map((movie) => (
             <CarouselItem key={movie.id}>
-              <div className="relative w-3/5 mx-auto h-[400px] md:h-[600px] overflow-hidden rounded-lg bg-black">
+              <div className="relative w-3/4 mx-auto h-[400px] md:h-[600px] overflow-hidden rounded-lg bg-black">
                 {/* Poster */}
                 <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -60,7 +60,7 @@ export function BannerSlider({ movies }: BannerSliderProps) {
         {/* Navigation buttons */}
         <button
           onClick={scrollPrev}
-          className="absolute left-28 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 shadow-lg transition-all hover:bg-white hover:scale-110 md:h-14 md:w-14"
+          className="absolute left-16 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 shadow-lg transition-all hover:bg-white hover:scale-110 md:h-14 md:w-14"
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-6 w-6 text-gray-800 md:h-7 md:w-7" />
@@ -68,7 +68,7 @@ export function BannerSlider({ movies }: BannerSliderProps) {
 
         <button
           onClick={scrollNext}
-          className="absolute right-28 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 shadow-lg transition-all hover:bg-white hover:scale-110 md:h-14 md:w-14"
+          className="absolute right-16 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 shadow-lg transition-all hover:bg-white hover:scale-110 md:h-14 md:w-14"
           aria-label="Next slide"
         >
           <ChevronRight className="h-6 w-6 text-gray-800 md:h-7 md:w-7" />

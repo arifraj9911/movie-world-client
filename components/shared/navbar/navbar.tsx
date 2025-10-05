@@ -11,7 +11,7 @@ import { TiArrowSortedDown } from "react-icons/ti";
 export default function Navbar() {
   return (
     <nav className=" border-b border-gray-800">
-      <div className="flex items-center justify-center px-6 py-6 max-w-[1440px] gap-10 mx-auto">
+      <div className="flex items-center justify-between px-6 py-6 max-w-[1440px] gap-10 mx-auto">
         {/* Logo */}
         <div className="flex items-center gap-8 ">
           <div className="flex flex-col items-baseline relative -mt-3">
@@ -50,7 +50,7 @@ export default function Navbar() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex items-center gap-6 text-base">
+        <nav className="flex items-center gap-10 text-base">
           <button className="text-yellow-500 font-medium hover:text-yellow-400 transition-colors">
             Get Pro
           </button>
