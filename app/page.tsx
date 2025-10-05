@@ -1,17 +1,18 @@
+import Banner from "@/components/banner/banner";
 import Navbar from "@/components/shared/navbar/navbar";
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-black min-h-screen">
       {/* navbar start */}
       <div>
         <Navbar />
       </div>
-      {/* navbar end */}
 
       {/* Main Body */}
       <div>
-      Body
+        {/* banner */}
+        <Banner />
       </div>
     </div>
   );

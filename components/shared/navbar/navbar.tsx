@@ -10,7 +10,7 @@ import { TiArrowSortedDown } from "react-icons/ti";
 
 export default function Navbar() {
   return (
-    <nav className="bg-black border-b border-gray-800">
+    <nav className=" border-b border-gray-800">
       <div className="flex items-center justify-center px-6 py-6 max-w-[1440px] gap-10 mx-auto">
         {/* Logo */}
         <div className="flex items-center gap-8 ">
