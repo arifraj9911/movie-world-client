@@ -1,9 +1,18 @@
-
+import Navbar from "@/components/shared/navbar/navbar";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      Movie World
+    <div>
+      {/* navbar start */}
+      <div>
+        <Navbar />
+      </div>
+      {/* navbar end */}
+
+      {/* Main Body */}
+      <div>
+      Body
+      </div>
     </div>
   );
 }
