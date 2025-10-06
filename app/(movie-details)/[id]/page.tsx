@@ -1,12 +1,23 @@
 "use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import MovieDetails from "@/components/movie-details/movie-details";
-import { movies } from "@/data/movies";
+import { getSingleMovie } from "@/utils/get-movies";
+
 import { useParams } from "next/navigation";
+
+import { useEffect, useState } from "react";
 
 export default function MovieDetailsPage() {
   const { id } = useParams();
-  const movie = movies.find((m) => m.id === id);
+  const [movie, setMovie] = useState<any>(null);
+
+  useEffect(() => {
+    if (id) {
+      getSingleMovie(String(id)).then((result) => setMovie(result));
+    }
+  }, [id]);
+
   console.log("movies details", movie);
 
   if (!movie) {

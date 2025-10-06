@@ -1,7 +1,7 @@
+import { Movie } from "@/data/movies";
 import MovieSlider from "../shared/movie-slider/movie-slider";
-import { movies } from "@/data/movies";
 
-export default function WatchList() {
+export default function WatchList({ movies }: { movies: Movie[] }) {
   return (
     <div id="watch-list" className="py-20 max-w-[1280px] mx-auto px-6">
       {/* title */}

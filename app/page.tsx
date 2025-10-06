@@ -4,24 +4,27 @@ import MovieRated from "@/components/movies-rated/movie-rated";
 import Trailer from "@/components/trailer/trailer";
 import UpcomingMovies from "@/components/upcoming-movies/upcoming-movies";
 import WatchList from "@/components/watch-list/watch-list";
+import { getMovies } from "@/utils/get-movies";
 
-export default function Home() {
+export default async function Home() {
+  const movies = await getMovies();
+
   return (
     <div>
       {/* banner */}
-      <Banner />
+      <Banner movies={movies} />
 
       {/* upcoming movies */}
-      <UpcomingMovies />
+      <UpcomingMovies movies={movies} />
 
       {/* Trailer */}
       <Trailer />
 
       {/* Movie Rated */}
-      <MovieRated />
+      <MovieRated movies={movies}/>
 
       {/* Watch List */}
-      <WatchList />
+      <WatchList movies={movies}/>
 
       {/* added movies */}
       <AddedMovies />

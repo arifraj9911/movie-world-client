@@ -1,8 +1,7 @@
-
 import MovieSlider from "../shared/movie-slider/movie-slider";
-import { movies } from "@/data/movies";
+import { Movie } from "@/data/movies";
 
-export default function MovieRated() {
+export default function MovieRated({ movies }: { movies: Movie[] }) {
   return (
     <div id="movie_rated" className="py-20 max-w-[1280px] mx-auto px-6">
       {/* title */}
@@ -13,7 +12,7 @@ export default function MovieRated() {
       </div>
 
       {/* slider */}
-      <MovieSlider movies={movies} movieRated={true}/>
+      <MovieSlider movies={movies} movieRated={true} />
     </div>
   );
 }

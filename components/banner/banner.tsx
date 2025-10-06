@@ -1,10 +1,7 @@
-// import Image from "next/image";
-import jawanImg from "@/assets/images/jawan.jpg";
-import pathanImg from "@/assets/images/pathan2.jpg";
 import { BannerSlider } from "./banner-slider/banner-slider";
-import { movies } from "@/data/movies";
+import { Movie } from "@/data/movies";
 
-export default function Banner() {
+export default function Banner({ movies }: { movies: Movie[] }) {
   // const featuredMovies = [
   //   {
   //     id: "1",

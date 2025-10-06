@@ -1,15 +1,9 @@
-import { movies } from "@/data/movies";
+import { getMovies } from "@/utils/get-movies";
 import { Facebook, Twitter, Linkedin } from "lucide-react";
 import Link from "next/link";
 
-export function Footer() {
-  const upcomingMovies = [
-    "JAWAN",
-    "The Vampire Diaries",
-    "Barbie",
-    "Teen all",
-    "NCIS",
-  ];
+export async function Footer() {
+  const movies = await getMovies();
 
   const additionalPages = [
     { name: "Terms & Conditions", href: "/terms" },
@@ -27,10 +21,10 @@ export function Footer() {
               Upcoming Movies
             </h3>
             <ul className="space-y-3">
-              {movies?.slice(0, 5).map((movie) => (
-                <li key={movie?.id}>
+              {movies?.slice(0, 5)?.map((movie) => (
+                <li key={movie?._id}>
                   <Link
-                    href={`/${movie?.id}`}
+                    href={`/${movie?._id}`}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     {movie?.title}

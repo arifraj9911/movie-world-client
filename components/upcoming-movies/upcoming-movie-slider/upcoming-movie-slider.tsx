@@ -68,7 +68,7 @@ export default function UpcomingMovieSlider({
       >
         {movies.map((movie, index) => (
           <SwiperSlide
-            onClick={() => router.push(`/${movie?.id}`)}
+            onClick={() => router.push(`/${movie?._id}`)}
             key={movie.id}
             className="flex justify-center mt-10 cursor-pointer"
           >

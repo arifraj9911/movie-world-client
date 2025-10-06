@@ -1,7 +1,7 @@
+import { Movie } from "@/data/movies";
 import UpcomingMovieSlider from "./upcoming-movie-slider/upcoming-movie-slider";
-import { movies } from "@/data/movies";
 
-export default function UpcomingMovies() {
+export default function UpcomingMovies({ movies }: { movies: Movie[] }) {
 
   return (
     <div className="py-20">
