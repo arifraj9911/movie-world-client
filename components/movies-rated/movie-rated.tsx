@@ -1,5 +1,6 @@
-import { moviesData } from "@/data/moviesData";
+
 import MovieSlider from "../shared/movie-slider/movie-slider";
+import { movies } from "@/data/movies";
 
 export default function MovieRated() {
   return (
@@ -12,7 +13,7 @@ export default function MovieRated() {
       </div>
 
       {/* slider */}
-      <MovieSlider movies={moviesData} movieRated={true}/>
+      <MovieSlider movies={movies} movieRated={true}/>
     </div>
   );
 }

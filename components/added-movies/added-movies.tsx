@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Image from "next/image";
 import jawanImg from "@/assets/images/jawan.jpg";
-import pathanImg from "@/assets/images/pathan2.jpg";
+import vampireDiariesImg from "@/assets/images/vampire_diaries.jpg";
 
 interface Movie {
   id: string;
@@ -17,12 +17,12 @@ export function AddedMovies() {
     {
       id: "1",
       title: "The Vampire Diaries",
-      posterUrl: jawanImg.src,
+      posterUrl: vampireDiariesImg.src,
     },
     {
       id: "2",
-      title: "Gen V",
-      posterUrl: pathanImg.src,
+      title: "Jawan",
+      posterUrl: jawanImg.src,
     },
   ];
 

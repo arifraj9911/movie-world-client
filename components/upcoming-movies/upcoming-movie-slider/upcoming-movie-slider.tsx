@@ -9,12 +9,14 @@ import type SwiperClass from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
+import { Movie } from "@/data/movies";
+import { useRouter } from "next/navigation";
 
-interface Movie {
-  id: string;
-  title: string;
-  posterUrl: string;
-}
+// interface Movie {
+//   id: string;
+//   title: string;
+//   posterUrl: string;
+// }
 
 interface UpcomingMovieSliderProps {
   movies: Movie[];
@@ -25,6 +27,7 @@ export default function UpcomingMovieSlider({
 }: UpcomingMovieSliderProps) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const swiperRef = useRef<SwiperClass | null>(null);
+  const router = useRouter();
 
   const middleIndex = Math.max(0, Math.floor(movies.length / 2));
 
@@ -64,7 +67,11 @@ export default function UpcomingMovieSlider({
         className="w-full h-[450px]"
       >
         {movies.map((movie, index) => (
-          <SwiperSlide key={movie.id} className="flex justify-center mt-10">
+          <SwiperSlide
+            onClick={() => router.push(`/${movie?.id}`)}
+            key={movie.id}
+            className="flex justify-center mt-10 cursor-pointer"
+          >
             <div
               className={`relative transition-transform duration-300 ease-in-out
                 ${activeIndex === index ? "scale-110 z-30" : "scale-90 z-10"}
@@ -79,8 +86,8 @@ export default function UpcomingMovieSlider({
                 }`}
               >
                 <Image
-                  src={movie.posterUrl}
-                  alt={movie.title}
+                  src={movie?.poster}
+                  alt={movie?.title}
                   width={250}
                   height={350}
                   className={`w-[200px] md:w-full h-[200px] md:h-[350px] object-cover`}
@@ -90,7 +97,7 @@ export default function UpcomingMovieSlider({
 
               <div className="absolute bottom-0 left-0 w-full bg-[#0000007d] bg-gradient-to-t from-black/80 to-transparent text-center py-3 rounded-b-2xl">
                 <h3 className="text-white text-sm md:text-lg font-semibold">
-                  {movie.title}
+                  {movie?.title}
                 </h3>
               </div>
             </div>

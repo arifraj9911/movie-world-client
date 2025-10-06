@@ -1,5 +1,5 @@
-import { moviesData } from "@/data/moviesData";
 import MovieSlider from "../shared/movie-slider/movie-slider";
+import { movies } from "@/data/movies";
 
 export default function WatchList() {
   return (
@@ -12,7 +12,7 @@ export default function WatchList() {
       </div>
 
       {/* slider */}
-      <MovieSlider movies={moviesData} movieRated={false} />
+      <MovieSlider movies={movies} movieRated={false} />
     </div>
   );
 }

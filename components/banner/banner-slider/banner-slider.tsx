@@ -10,13 +10,14 @@ import {
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import Autoplay from "embla-carousel-autoplay";
+import { Movie } from "@/data/movies";
 
-interface Movie {
-  id: string;
-  title: string;
-  posterUrl: string;
-  releaseDate?: string;
-}
+// interface Movie {
+//   id: string;
+//   title: string;
+//   posterUrl: string;
+//   releaseDate?: string;
+// }
 
 interface BannerSliderProps {
   movies: Movie[];
@@ -42,12 +43,12 @@ export function BannerSlider({ movies }: BannerSliderProps) {
       >
         <CarouselContent>
           {movies.map((movie) => (
-            <CarouselItem key={movie.id}>
+            <CarouselItem key={movie?.id}>
               <div className="relative w-3/4 mx-auto h-[400px] md:h-[600px] overflow-hidden rounded-lg bg-black">
                 {/* Poster */}
                 <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                  style={{ backgroundImage: `url(${movie.posterUrl})` }}
+                  style={{ backgroundImage: `url(${movie?.poster})` }}
                 >
                   {/* Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />

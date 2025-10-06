@@ -6,6 +6,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown, Search, User } from "lucide-react";
+import Link from "next/link";
 import { TiArrowSortedDown } from "react-icons/ti";
 
 export default function Navbar() {
@@ -14,12 +15,17 @@ export default function Navbar() {
       <div className="flex items-center justify-between py-6 max-w-[1280px] gap-10 mx-auto">
         {/* Logo */}
         <div className="flex items-center gap-8 ">
-          <div className="flex flex-col items-baseline relative -mt-3">
+          <Link
+            href="/"
+            className="flex flex-col items-baseline relative -mt-3"
+          >
             <span className="text-blue-500 font-bold text-3xl tracking-tight">
               MOVIE
             </span>
-            <span className="text-white font-medium text-base  absolute -bottom-4 -right-3 ">World</span>
-          </div>
+            <span className="text-white font-medium text-base  absolute -bottom-4 -right-3 ">
+              World
+            </span>
+          </Link>
         </div>
 
         {/* Search Bar */}
@@ -67,7 +73,7 @@ export default function Navbar() {
               <Button
                 variant="default"
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-[50px]" 
+                className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-[50px]"
               >
                 EN
                 <ChevronDown className="w-4 h-4 ml-1" />

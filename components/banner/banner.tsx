@@ -2,20 +2,21 @@
 import jawanImg from "@/assets/images/jawan.jpg";
 import pathanImg from "@/assets/images/pathan2.jpg";
 import { BannerSlider } from "./banner-slider/banner-slider";
+import { movies } from "@/data/movies";
 
 export default function Banner() {
-  const featuredMovies = [
-    {
-      id: "1",
-      title: "ACTION HERO",
-      posterUrl: jawanImg.src,
-    },
-    {
-      id: "2",
-      title: "DARK THRILLER",
-      posterUrl: pathanImg.src,
-    },
-  ];
+  // const featuredMovies = [
+  //   {
+  //     id: "1",
+  //     title: "ACTION HERO",
+  //     posterUrl: jawanImg.src,
+  //   },
+  //   {
+  //     id: "2",
+  //     title: "DARK THRILLER",
+  //     posterUrl: pathanImg.src,
+  //   },
+  // ];
   return (
     <div className="max-w-[1280px] mx-auto py-20  flex flex-col md:flex-row items-center justify-between gap-10">
       {/* banner text */}
@@ -40,7 +41,7 @@ export default function Banner() {
           className="rounded-lg"
         /> */}
 
-        <BannerSlider movies={featuredMovies} />
+        <BannerSlider movies={movies} />
       </div>
     </div>
   );
