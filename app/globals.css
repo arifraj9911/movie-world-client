@@ -125,3 +125,16 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .btn-gradient {
+    @apply text-white font-semibold rounded-lg px-6 py-2 sm:px-8 sm:py-3 cursor-pointer transition-all;
+    background: linear-gradient(90deg, #4268ff 0%, #1a009c 100%);
+  }
+
+  .btn-gradient:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+}

@@ -3,11 +3,11 @@ import { movies } from "@/data/movies";
 
 export default function WatchList() {
   return (
-    <div className="py-20 max-w-[1280px] mx-auto px-6">
+    <div id="watch-list" className="py-20 max-w-[1280px] mx-auto px-6">
       {/* title */}
       <div className="text-left mb-16">
         <h2 className="text-4xl text-white uppercase font-semibold mb-2">
-          your <span className="text-yellow-500">watch-list</span> 
+          your <span className="text-yellow-500">watch-list</span>
         </h2>
       </div>
 

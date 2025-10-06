@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import {
+  Anton,
+  Geist,
+  Geist_Mono,
+  Poppins,
+  UnifrakturCook,
+} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/navbar/navbar";
 import { Footer } from "@/components/shared/footer/footer";
@@ -33,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased bg-black min-h-screen text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable}antialiased bg-black min-h-screen text-white`}
       >
         {/* navbar start */}
 

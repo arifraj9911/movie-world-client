@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 import { Movie } from "@/data/movies";
 import { IoIosStarOutline } from "react-icons/io";
@@ -96,7 +95,7 @@ export default function MovieDetails({ movie }: { movie: Movie }) {
         <div className="flex justify-start items-center mb-12 gap-2">
           <h2 className="text-3xl font-bold">
             <span className="text-white">TOP</span>{" "}
-            <span className="text-[#3B82F6]">CAST</span>
+            <span className="text-[#1e8ae3]">CAST</span>
           </h2>
           <button className="!h-8 !w-8 z-10 flex items-center justify-center rounded-md bg-white/90 shadow-md transition-all hover:bg-white hover:scale-110 p-2">
             <SlArrowRight size={14} className="text-blue-500 font-semibold" />

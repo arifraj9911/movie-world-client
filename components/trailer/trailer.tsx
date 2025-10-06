@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import Image from "next/image";
 import jawanImg from "@/assets/images/jawan.jpg";
+import { smoothScroll } from "@/utils/smooth-scroll";
 
 export default function Trailer() {
   return (
@@ -26,8 +27,9 @@ export default function Trailer() {
               mollis suscipit maecenas amet eget.
             </p>
             <Button
+            onClick={()=>smoothScroll('movie_rated')}
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-base font-semibold rounded-full"
+              className=" text-white px-8 py-6 text-base font-semibold rounded-full btn-gradient"
             >
               WATCH NOW
             </Button>

@@ -84,7 +84,7 @@ const MovieSlider: FC<MovieSliderProps> = ({ movies, movieRated }) => {
                 </div>
 
                 <div className="mt-3 flex flex-col gap-2">
-                  <button className="flex items-center justify-center font-semibold gap-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm py-2 rounded-[50px] hover:opacity-90">
+                  <button className="flex items-center justify-center font-semibold gap-2 btn-gradient text-white text-sm py-2 rounded-[50px] hover:opacity-90">
                     <Plus className="w-5 h-5" /> WATCH LIST
                   </button>
                   <button onClick={()=>router.push(`/${movie?.id}`)} className="flex items-center justify-start gap-2 text-gray-300 text-base py-2 rounded-md cursor-pointer hover:bg-white/10 px-2">

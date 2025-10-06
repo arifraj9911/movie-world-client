@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -8,10 +9,27 @@ import {
 import { ChevronDown, Search, User } from "lucide-react";
 import Link from "next/link";
 import { TiArrowSortedDown } from "react-icons/ti";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleWatchListClick = () => {
+    if (pathname !== "/") {
+      // Navigate to home first
+      router.push("/#watch-list");
+    } else {
+      // If already on home, just smooth scroll
+      const section = document.getElementById("watch-list");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
-    <nav className=" border-b border-gray-800">
+    <nav className="border-b border-gray-800">
       <div className="flex items-center justify-between py-6 max-w-[1280px] gap-10 mx-auto">
         {/* Logo */}
         <div className="flex items-center gap-8 ">
@@ -19,10 +37,10 @@ export default function Navbar() {
             href="/"
             className="flex flex-col items-baseline relative -mt-3"
           >
-            <span className="text-blue-500 font-bold text-3xl tracking-tight">
+            <span className="text-[#1e8ae3] font-bold text-3xl tracking-tight ">
               MOVIE
             </span>
-            <span className="text-white font-medium text-base  absolute -bottom-4 -right-3 ">
+            <span className="text-white font-medium text-base absolute -bottom-4 -right-3 ">
               World
             </span>
           </Link>
@@ -39,9 +57,8 @@ export default function Navbar() {
             />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="absolute right-1 top-1/2 -translate-y-1/2 flex items-center gap-2 px-2 py-2 text-base text-gray-700 bg-gray-300 rounded-lg  ">
+                <button className="absolute right-1 top-1/2 -translate-y-1/2 flex items-center gap-2 px-2 py-2 text-base text-gray-700 bg-gray-300 rounded-lg">
                   All
-                  {/* <ChevronDown className="w-4 h-4" /> */}
                   <TiArrowSortedDown size={20} />
                 </button>
               </DropdownMenuTrigger>
@@ -57,13 +74,35 @@ export default function Navbar() {
 
         {/* Navigation */}
         <nav className="flex items-center gap-10 text-base">
-          <button className="text-yellow-500 font-medium hover:text-yellow-400 transition-colors">
+          {/* Get Pro */}
+          <Link
+            href="/get-pro"
+            className={`font-medium transition-colors ${
+              pathname === "/get-pro"
+                ? "text-yellow-500"
+                : "text-white hover:text-gray-300"
+            }`}
+          >
             Get Pro
-          </button>
-          <button className="text-white font-medium hover:text-gray-300 transition-colors">
+          </Link>
+
+          {/* Movies */}
+          <Link
+            href="/movies"
+            className={`font-medium transition-colors ${
+              pathname === "/movies"
+                ? "text-yellow-500"
+                : "text-white hover:text-gray-300"
+            }`}
+          >
             Movies
-          </button>
-          <button className="text-white font-medium hover:text-gray-300 transition-colors">
+          </Link>
+
+          {/* Watch-list (scrolls or navigates) */}
+          <button
+            onClick={handleWatchListClick}
+            className="font-medium text-white hover:text-gray-300 transition-colors cursor-pointer"
+          >
             Watch-list
           </button>
 
@@ -73,7 +112,7 @@ export default function Navbar() {
               <Button
                 variant="default"
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-[50px]"
+                className="btn-gradient text-white font-medium rounded-[50px]"
               >
                 EN
                 <ChevronDown className="w-4 h-4 ml-1" />

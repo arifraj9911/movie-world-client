@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Autoplay from "embla-carousel-autoplay";
 import { Movie } from "@/data/movies";
+import { smoothScroll } from "@/utils/smooth-scroll";
 
 // interface Movie {
 //   id: string;
@@ -78,8 +79,9 @@ export function BannerSlider({ movies }: BannerSliderProps) {
         {/* WATCH NOW button (fixed at bottom center) */}
         <div className="absolute -bottom-6 left-1/2 -translate-x-1/2">
           <Button
+            onClick={() => smoothScroll("movie_rated")}
             size="lg"
-            className="bg-blue-600 px-12 py-6 text-base font-semibold uppercase tracking-wide hover:bg-blue-700  rounded-[50px]"
+            className="bg-blue-600 px-12 py-6 text-base font-semibold uppercase tracking-wide hover:bg-blue-700  rounded-[50px] cursor-pointer btn-gradient"
           >
             Watch Now
           </Button>

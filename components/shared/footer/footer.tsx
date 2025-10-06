@@ -1,3 +1,4 @@
+import { movies } from "@/data/movies";
 import { Facebook, Twitter, Linkedin } from "lucide-react";
 import Link from "next/link";
 
@@ -26,13 +27,13 @@ export function Footer() {
               Upcoming Movies
             </h3>
             <ul className="space-y-3">
-              {upcomingMovies.map((movie) => (
-                <li key={movie}>
+              {movies?.slice(0, 5).map((movie) => (
+                <li key={movie?.id}>
                   <Link
-                    href="#"
+                    href={`/${movie?.id}`}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    {movie}
+                    {movie?.title}
                   </Link>
                 </li>
               ))}
@@ -63,7 +64,7 @@ export function Footer() {
             <div className="mb-6">
               <div className="flex items-center gap-8 ">
                 <div className="flex flex-col items-baseline relative ">
-                  <span className="text-blue-500 font-bold text-3xl tracking-tight">
+                  <span className="text-[#1e8ae3] font-bold text-3xl tracking-tight ">
                     MOVIE
                   </span>
                   <span className="text-white font-medium text-base  absolute -bottom-4 -right-3 ">
