@@ -60,22 +60,22 @@ export function BannerSlider({ movies }: BannerSliderProps) {
         {/* Navigation buttons */}
         <button
           onClick={scrollPrev}
-          className="absolute left-16 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 shadow-lg transition-all hover:bg-white hover:scale-110 md:h-14 md:w-14"
+          className="absolute left-14 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-md bg-white/90 shadow-lg transition-all hover:bg-white hover:scale-110 md:h-14 md:w-14"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="h-6 w-6 text-gray-800 md:h-7 md:w-7" />
+          <ChevronLeft className="h-6 w-6 text-blue-500 md:h-8 md:w-8" />
         </button>
 
         <button
           onClick={scrollNext}
-          className="absolute right-16 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 shadow-lg transition-all hover:bg-white hover:scale-110 md:h-14 md:w-14"
+          className="absolute right-14 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-md bg-white/90 shadow-lg transition-all hover:bg-white hover:scale-110 md:h-14 md:w-14"
           aria-label="Next slide"
         >
-          <ChevronRight className="h-6 w-6 text-gray-800 md:h-7 md:w-7" />
+          <ChevronRight className="h-6 w-6 text-blue-500 md:h-8 md:w-8 " />
         </button>
 
         {/* WATCH NOW button (fixed at bottom center) */}
-        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2">
+        <div className="absolute -bottom-6 left-1/2 -translate-x-1/2">
           <Button
             size="lg"
             className="bg-blue-600 px-12 py-6 text-base font-semibold uppercase tracking-wide hover:bg-blue-700  rounded-[50px]"

@@ -51,7 +51,7 @@ export default function UpcomingMovieSlider({
         }}
         centeredSlides={true}
         autoplay={true}
-        slidesPerView={5.4}
+        slidesPerView={5}
         spaceBetween={20}
         loop={true}
         speed={600}

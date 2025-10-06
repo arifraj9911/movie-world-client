@@ -14,7 +14,7 @@ export default function Trailer() {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-[1440px] px-6 mx-auto">
+      <div className="relative max-w-[1280px]  mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6">
