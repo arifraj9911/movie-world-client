@@ -7,6 +7,7 @@ import Image from "next/image";
 import jawanImg from "@/assets/images/jawan.jpg";
 import vampireDiariesImg from "@/assets/images/vampire_diaries.jpg";
 import { AddMovieModal } from "../shared/add-movie-modal/add-movie-modal";
+import { useRouter } from "next/navigation";
 
 interface Movie {
   id: string;
@@ -15,6 +16,8 @@ interface Movie {
 }
 
 export function AddedMovies() {
+  const router = useRouter();
+
   const handleAddMovie = async (movieData: {
     formData: any;
     posterFile: File | null;
@@ -62,10 +65,13 @@ export function AddedMovies() {
           body: formDataToSend,
         }
       );
-      const data = await res.json();
-      console.log("Response from server:", data);
+
+      if (!res.ok) throw new Error("Movie created failed");
+      await res.json();
+      // console.log("Response from server:", data);
+      router.refresh();
     } catch (error) {
-      console.log("failed", error);
+      console.log("failed to create movie", error);
     }
   };
 

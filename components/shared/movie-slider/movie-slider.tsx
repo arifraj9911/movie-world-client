@@ -56,7 +56,7 @@ const MovieSlider: FC<MovieSliderProps> = ({ movies, movieRated }) => {
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
       >
         {movies.map((movie, index) => (
-          <SwiperSlide key={movie?.id}>
+          <SwiperSlide key={movie?._id}>
             <div
               className={`rounded-lg overflow-hidden shadow-md hover:shadow-xl transition
                 ${

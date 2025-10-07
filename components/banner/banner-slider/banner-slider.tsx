@@ -44,7 +44,7 @@ export function BannerSlider({ movies }: BannerSliderProps) {
       >
         <CarouselContent>
           {movies.map((movie) => (
-            <CarouselItem key={movie?.id}>
+            <CarouselItem key={movie?._id}>
               <div className="relative w-3/4 mx-auto h-[400px] md:h-[600px] overflow-hidden rounded-lg bg-black">
                 {/* Poster */}
                 <div

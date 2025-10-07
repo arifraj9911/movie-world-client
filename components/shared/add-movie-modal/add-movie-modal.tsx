@@ -212,7 +212,6 @@ export function AddMovieModal({ onMovieAdd, children }: AddMovieModalProps) {
     resetForm();
   };
 
-
   const resetForm = () => {
     setFormData({
       title: "",
@@ -280,7 +279,7 @@ export function AddMovieModal({ onMovieAdd, children }: AddMovieModalProps) {
                   }))
                 }
                 required
-                className="bg-slate-800 border-slate-600 text-white file:bg-blue-600 file:text-white file:border-0 file:rounded-md file:px-4  hover:file:bg-blue-700"
+                className="bg-slate-800 border-slate-600 text-white file:bg-blue-600 file:text-white file:border-0 file:rounded-md file:px-4 px-2   hover:file:bg-blue-700 file:cursor-pointer cursor-pointer"
               />
             </div>
           </div>
@@ -320,7 +319,7 @@ export function AddMovieModal({ onMovieAdd, children }: AddMovieModalProps) {
               <Button
                 type="button"
                 onClick={handleAddCreator}
-                className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium"
+                className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium cursor-pointer"
               >
                 Add
               </Button>
@@ -355,7 +354,7 @@ export function AddMovieModal({ onMovieAdd, children }: AddMovieModalProps) {
               <Button
                 type="button"
                 onClick={handleAddStar}
-                className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium"
+                className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium cursor-pointer"
               >
                 Add
               </Button>
@@ -390,7 +389,7 @@ export function AddMovieModal({ onMovieAdd, children }: AddMovieModalProps) {
               <Button
                 type="button"
                 onClick={handleAddGenre}
-                className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium"
+                className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium cursor-pointer"
               >
                 Add
               </Button>
@@ -644,18 +643,20 @@ export function AddMovieModal({ onMovieAdd, children }: AddMovieModalProps) {
                       image: e.target.files?.[0] || null,
                     }))
                   }
-                  className="bg-slate-800 border-slate-600 text-white file:bg-blue-600 file:text-white file:border-0 file:rounded-md file:px-4 hover:file:bg-blue-700"
+                  className="bg-slate-800 border-slate-600 text-white file:bg-blue-600 file:text-white file:border-0 file:rounded-md file:px-4 hover:file:bg-blue-700 file:cursor-pointer cursor-pointer px-2 "
                 />
               </div>
             </div>
 
-            <Button
-              type="button"
-              onClick={handleAddCast}
-              className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium"
-            >
-              Add Cast Member
-            </Button>
+            <div className=" flex justify-end">
+              <Button
+                type="button"
+                onClick={handleAddCast}
+                className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium cursor-pointer"
+              >
+                Add Cast Member
+              </Button>
+            </div>
 
             <div className="space-y-2">
               {formData.topCast.map((cast, index) => (
@@ -685,14 +686,14 @@ export function AddMovieModal({ onMovieAdd, children }: AddMovieModalProps) {
                           e.target.files?.[0] || null
                         )
                       }
-                      className="w-40 bg-slate-800 border-slate-600 text-white file:bg-green-600 file:text-white file:border-0 file:rounded-md file:px-2 file:py-1 hover:file:bg-green-700 text-sm"
+                      className="w-40 bg-slate-800 border-slate-600 text-white file:bg-green-600 file:text-white file:border-0 file:rounded-md file:px-2 file:py-1 hover:file:bg-green-700 text-sm "
                     />
                     <Button
                       type="button"
                       variant="outline"
                       size="sm"
                       onClick={() => handleRemoveCast(index)}
-                      className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+                      className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white cursor-pointer"
                     >
                       Remove
                     </Button>
@@ -718,7 +719,7 @@ export function AddMovieModal({ onMovieAdd, children }: AddMovieModalProps) {
               <Button
                 type="button"
                 onClick={handleAddTag}
-                className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium"
+                className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium cursor-pointer"
               >
                 Add
               </Button>
@@ -743,13 +744,13 @@ export function AddMovieModal({ onMovieAdd, children }: AddMovieModalProps) {
               type="button"
               variant="outline"
               onClick={() => setOpen(false)}
-              className="border-slate-600 text-black hover:bg-slate-700 hover:text-white"
+              className="border-slate-600 text-black hover:bg-slate-700 hover:text-white cursor-pointer"
             >
               Cancel
             </Button>
             <Button
               type="submit"
-              className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium px-8"
+              className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium px-8 cursor-pointer"
             >
               Add Movie
             </Button>
