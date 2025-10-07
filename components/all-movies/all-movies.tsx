@@ -15,7 +15,7 @@ export default async function AllMovies() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
         {movies.map((movie) => (
-          <div key={movie?.id}>
+          <div key={movie?._id}>
             <div
               className={`rounded-lg overflow-hidden shadow-md hover:shadow-xl transition              `}
             >

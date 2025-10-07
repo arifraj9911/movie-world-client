@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -5,6 +6,7 @@ import { Plus } from "lucide-react";
 import Image from "next/image";
 import jawanImg from "@/assets/images/jawan.jpg";
 import vampireDiariesImg from "@/assets/images/vampire_diaries.jpg";
+import { AddMovieModal } from "../shared/add-movie-modal/add-movie-modal";
 
 interface Movie {
   id: string;
@@ -13,7 +15,61 @@ interface Movie {
 }
 
 export function AddedMovies() {
-  const movies: Movie[] = [
+  const handleAddMovie = async (movieData: {
+    formData: any;
+    posterFile: File | null;
+    topCastFiles: File[];
+  }) => {
+    // Create FormData and handle API call here
+    const formDataToSend = new FormData();
+
+    // Add form data as JSON strings
+    Object.keys(movieData.formData).forEach((key) => {
+      if (Array.isArray(movieData.formData[key])) {
+        formDataToSend.append(key, JSON.stringify(movieData.formData[key]));
+      } else {
+        formDataToSend.append(key, movieData.formData[key]);
+      }
+    });
+
+    // Add files
+    if (movieData.posterFile) {
+      formDataToSend.append("poster", movieData.posterFile);
+    }
+
+    movieData.topCastFiles.forEach((file) => {
+      formDataToSend.append("topCastImages", file);
+    });
+
+    // Proper way to log FormData contents
+    console.log("FormData contents:");
+    for (const [key, value] of formDataToSend.entries()) {
+      if (value instanceof File) {
+        console.log(key, value.name, value.size, value.type);
+      } else {
+        console.log(key, value);
+      }
+    }
+
+    // Alternative way to see all data
+    // console.log("Complete movieData:", movieData);
+
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/movies/create`,
+        {
+          method: "POST",
+          body: formDataToSend,
+        }
+      );
+      const data = await res.json();
+      console.log("Response from server:", data);
+    } catch (error) {
+      console.log("failed", error);
+    }
+  };
+
+  const addedMovies: Movie[] = [
     {
       id: "1",
       title: "The Vampire Diaries",
@@ -37,7 +93,7 @@ export function AddedMovies() {
       {/* Movies Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Existing Movies */}
-        {movies.map((movie) => (
+        {addedMovies.map((movie) => (
           <div
             key={movie.id}
             className="relative group h-[500px] rounded-lg overflow-hidden"
@@ -60,10 +116,12 @@ export function AddedMovies() {
         {/* Add Movie Card */}
         <div className=" flex items-center justify-center">
           <div className="!h-[400px] w-full max-w-sm rounded-lg border-2 border-dashed border-gray-500 flex items-center justify-center bg-[#1A1A1A]">
-            <Button className="btn-gradient text-white font-semibold px-6 flex items-center rounded-[50px] p-4">
-              <Plus className="w-5 h-5 mr-2" />
-              ADD MOVIE
-            </Button>
+            <AddMovieModal onMovieAdd={handleAddMovie}>
+              <Button className="btn-gradient text-white font-semibold px-6 flex items-center rounded-[50px] p-4">
+                <Plus className="w-5 h-5 mr-2" />
+                ADD MOVIE
+              </Button>
+            </AddMovieModal>
           </div>
         </div>
       </div>
