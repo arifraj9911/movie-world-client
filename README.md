@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 Movie World
 
-## Getting Started
+🌐 **Live Website:** [Movie World Client](https://movie-world-client.vercel.app/)
 
-First, run the development server:
+Movie World is a modern movie application built with **Next.js** and **TypeScript**.  
+It allows users to browse movies, add new ones, manage watch list status, and explore movie details with an elegant and responsive UI.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📌 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- ⚛️ **Frontend Framework:** [Next.js](https://nextjs.org/) with **TypeScript**
+- 🎨 **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- 🖤 **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
+- 📽️ **Sliders:** [Swiper](https://swiperjs.com/) & shadcn Carousel
+- 📱 **Responsive Design:** Optimized for mobile, tablet, and desktop
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Features
 
-To learn more about Next.js, take a look at the following resources:
+- ➕ **Add Movies:** From the **“Add Movie”** button in the **Added Movies** section.
+- 👁️ **Movie Details:**
+  - Click on a movie in the **Banner Slider**, **Upcoming Slider**, or click the **“Trailer”** button to view details.
+- 📃 **Movies Page:**
+  - Delete or update movies easily.
+- ⭐ **Watch List:**
+  - Displays only movies with **watch list status enabled**.
+- 📱 **Responsive UI:**
+  - Fully optimized for mobile devices.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🖥️ Future Expansion
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 📊 **Dashboard:**  
+  Implement a proper admin dashboard to manage movies.
+- 📦 **Backend Enhancements:**  
+  More collections in the backend to handle advanced features.
+- 🔄 **Dynamic Added Movies:**  
+  Currently static; can be made fully dynamic in the future.
+- 🌍 **Localization (i18n):**  
+  Add multi-language support.
+- 🔎 **Search Functionality:**  
+  Search for movies by name, genre, etc.
+- 🔐 **Authentication:**  
+  Secure features with user login and roles.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
