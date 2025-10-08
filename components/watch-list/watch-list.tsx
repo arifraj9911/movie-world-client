@@ -2,6 +2,9 @@ import { Movie } from "@/data/movies";
 import MovieSlider from "../shared/movie-slider/movie-slider";
 
 export default function WatchList({ movies }: { movies: Movie[] }) {
+  // console.log("watch list", movies);
+  const filteredMovies = movies.filter((movie) => movie.isWatched === true);
+
   return (
     <div id="watch-list" className="py-20 max-w-[1280px] mx-auto px-6">
       {/* title */}
@@ -12,7 +15,7 @@ export default function WatchList({ movies }: { movies: Movie[] }) {
       </div>
 
       {/* slider */}
-      <MovieSlider movies={movies} movieRated={false} />
+      <MovieSlider movies={filteredMovies} movieRated={false} />
     </div>
   );
 }

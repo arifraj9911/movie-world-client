@@ -6,7 +6,7 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { Star, Play, Plus } from "lucide-react";
+import { Star, Play, Plus, Check } from "lucide-react";
 import Image from "next/image";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { Movie } from "@/data/movies";
@@ -19,7 +19,9 @@ interface MovieSliderProps {
 
 const MovieSlider: FC<MovieSliderProps> = ({ movies, movieRated }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const router = useRouter()
+  const router = useRouter();
+
+  // console.log("movie slider", movies);
 
   return (
     <div className="relative w-full">
@@ -74,7 +76,9 @@ const MovieSlider: FC<MovieSliderProps> = ({ movies, movieRated }) => {
                 className="w-full h-64 object-cover"
               />
               <div className="p-3 text-white">
-                <h3 className="font-semibold text-[20px]">{movie?.title.slice(0,15)}..</h3>
+                <h3 className="font-semibold text-[20px]">
+                  {movie?.title.slice(0, 15)}..
+                </h3>
                 <div className="flex items-center text-sm mt-3">
                   <Star className="w-4 h-4 text-yellow-400 mr-1" />
                   <span>{movie?.rating}</span>
@@ -85,9 +89,17 @@ const MovieSlider: FC<MovieSliderProps> = ({ movies, movieRated }) => {
 
                 <div className="mt-3 flex flex-col gap-2">
                   <button className="flex items-center justify-center font-semibold gap-2 btn-gradient text-white text-sm py-2 rounded-[50px] hover:opacity-90">
-                    <Plus className="w-5 h-5" /> WATCH LIST
+                    {movie?.isWatched === true ? (
+                      <Check className="w-5 h-5" />
+                    ) : (
+                      <Plus className="w-5 h-5" />
+                    )}{" "}
+                    WATCH LIST
                   </button>
-                  <button onClick={()=>router.push(`/${movie?._id}`)} className="flex items-center justify-start gap-2 text-gray-300 text-base py-2 rounded-md cursor-pointer hover:bg-white/10 px-2">
+                  <button
+                    onClick={() => router.push(`/${movie?._id}`)}
+                    className="flex items-center justify-start gap-2 text-gray-300 text-base py-2 rounded-md cursor-pointer hover:bg-white/10 px-2"
+                  >
                     <Play className="w-5 h-5 border rounded-full p-1" /> TRAILER
                   </button>
                 </div>

@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 interface TopCast {
   image: string | File;
@@ -212,6 +213,8 @@ export default function UpdateModal({ id, movie, onClose }: UpdateModalProps) {
       await res.json();
       //   console.log("updated response", data);
       onClose();
+
+      toast.success("Update movie successfully");
 
       setTimeout(() => {
         router.refresh();

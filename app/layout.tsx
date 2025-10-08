@@ -9,6 +9,7 @@ import {
 import "./globals.css";
 import Navbar from "@/components/shared/navbar/navbar";
 import { Footer } from "@/components/shared/footer/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,6 +50,7 @@ export default function RootLayout({
 
         {/* footer */}
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

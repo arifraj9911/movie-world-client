@@ -8,6 +8,7 @@ import jawanImg from "@/assets/images/jawan.jpg";
 import vampireDiariesImg from "@/assets/images/vampire_diaries.jpg";
 import { AddMovieModal } from "../shared/add-movie-modal/add-movie-modal";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 interface Movie {
   id: string;
@@ -69,6 +70,7 @@ export function AddedMovies() {
       if (!res.ok) throw new Error("Movie created failed");
       await res.json();
       // console.log("Response from server:", data);
+      toast.success("Movie created successfully");
       router.refresh();
     } catch (error) {
       console.log("failed to create movie", error);

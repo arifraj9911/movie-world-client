@@ -1,6 +1,6 @@
 "use client";
 
-import { Play, Plus, SquarePen, Star, Trash2 } from "lucide-react";
+import { Check, Play, Plus, SquarePen, Star, Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { DeleteConfirmModal } from "../shared/delete-modal/delete-modal";
@@ -14,6 +14,7 @@ import {
 } from "../ui/dialog";
 import UpdateModal from "../shared/update-modal/update-modal";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function AllMovies({ movies }: { movies: Movie[] }) {
   const router = useRouter();
@@ -37,9 +38,33 @@ export default function AllMovies({ movies }: { movies: Movie[] }) {
 
       if (!res.ok) throw new Error("Delete failed");
       await res.json();
+      toast.success("Delete movie from the database");
       router.refresh();
     } catch (error) {
       console.log("Failed to delete movie!", error);
+    }
+  };
+
+  const handleWatchStatusUpdate = async (id: string) => {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/movies/watch-status/${id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+
+      if (!res.ok) throw Error("Failed to updated!");
+
+      await res.json();
+      // console.log("watch status updated", data);
+      toast.success("Added movie to watch list");
+      router.refresh();
+    } catch (error) {
+      console.log("Failed to fetch status", error);
     }
   };
 
@@ -76,8 +101,16 @@ export default function AllMovies({ movies }: { movies: Movie[] }) {
                 </div>
 
                 <div className="mt-3 flex flex-col gap-2">
-                  <button className="flex items-center justify-center font-semibold gap-2 btn-gradient text-white text-sm py-2 rounded-[50px] hover:opacity-90">
-                    <Plus className="w-5 h-5" /> WATCH LIST
+                  <button
+                    onClick={() => handleWatchStatusUpdate(movie?._id)}
+                    className="flex items-center justify-center font-semibold gap-2 btn-gradient text-white text-sm py-2 rounded-[50px] hover:opacity-90 cursor-pointer"
+                  >
+                    {movie?.isWatched === true ? (
+                      <Check className="w-5 h-5" />
+                    ) : (
+                      <Plus className="w-5 h-5" />
+                    )}{" "}
+                    WATCH LIST
                   </button>
                   <div className="flex items-center justify-between gap-6">
                     <Link
