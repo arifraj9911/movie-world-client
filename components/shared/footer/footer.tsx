@@ -12,61 +12,24 @@ export async function Footer() {
   ];
 
   return (
-    <footer className="bg-black text-white">
-      <div className="max-w-[1280px] mx-auto  py-12">
+    <footer className="bg-black text-white px-4 md:px-0">
+      <div className="max-w-[1280px] mx-auto py-12">
+        {/* grid order control */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-          {/* Upcoming Movies Section */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-6 uppercase tracking-wide">
-              Upcoming Movies
-            </h3>
-            <ul className="space-y-3">
-              {movies?.slice(0, 5)?.map((movie) => (
-                <li key={movie?._id}>
-                  <Link
-                    href={`/${movie?._id}`}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    {movie?.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Additional Pages Section */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-6 uppercase tracking-wide">
-              Additional Pages
-            </h3>
-            <ul className="space-y-3">
-              {additionalPages.map((page) => (
-                <li key={page.name}>
-                  <Link
-                    href={page.href}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    {page.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Brand and Social Section */}
-          <div>
+          <div className="order-1 md:order-3">
             <div className="mb-6">
-              <div className="flex items-center gap-8 ">
-                <div className="flex flex-col items-baseline relative ">
-                  <span className="text-[#1e8ae3] font-bold text-3xl tracking-tight ">
+              <div className="flex items-center gap-8">
+                <div className="flex flex-col items-baseline relative">
+                  <span className="text-[#1e8ae3] font-bold text-3xl tracking-tight">
                     MOVIE
                   </span>
-                  <span className="text-white font-medium text-base  absolute -bottom-4 -right-3 ">
+                  <span className="text-white font-medium text-base absolute -bottom-4 -right-3">
                     World
                   </span>
                 </div>
               </div>
-              <p className="text-gray-400  leading-relaxed mt-6">
+              <p className="text-gray-400 leading-relaxed mt-6">
                 © 2021 movieworld.com. All Rights Reserved. This site is not
                 affiliated or owned by the listed movie streaming platform
                 owners.
@@ -98,10 +61,48 @@ export async function Footer() {
               </Link>
             </div>
           </div>
+
+          {/* Upcoming Movies Section */}
+          <div className="order-2 md:order-1">
+            <h3 className="text-white font-bold text-lg mb-6 uppercase tracking-wide">
+              Upcoming Movies
+            </h3>
+            <ul className="space-y-3">
+              {movies?.slice(0, 5)?.map((movie) => (
+                <li key={movie?._id}>
+                  <Link
+                    href={`/${movie?._id}`}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    {movie?.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Additional Pages Section */}
+          <div className="order-3 md:order-2">
+            <h3 className="text-white font-bold text-lg mb-6 uppercase tracking-wide">
+              Additional Pages
+            </h3>
+            <ul className="space-y-3">
+              {additionalPages.map((page) => (
+                <li key={page.name}>
+                  <Link
+                    href={page.href}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    {page.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
 
-      {/* Bottom Copyright Bar */}
+      {/* Bottom Bar */}
       <div className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-6">
           <p className="text-center text-gray-500 text-sm">

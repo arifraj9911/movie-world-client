@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import Autoplay from "embla-carousel-autoplay";
 import { Movie } from "@/data/movies";
 import { smoothScroll } from "@/utils/smooth-scroll";
+import { useRouter } from "next/navigation";
 
 // interface Movie {
 //   id: string;
@@ -29,6 +30,7 @@ export function BannerSlider({ movies }: BannerSliderProps) {
   const plugin = React.useRef(
     Autoplay({ delay: 5000, stopOnInteraction: true })
   );
+  const router = useRouter();
 
   const scrollPrev = () => api?.scrollPrev();
   const scrollNext = () => api?.scrollNext();
@@ -44,8 +46,11 @@ export function BannerSlider({ movies }: BannerSliderProps) {
       >
         <CarouselContent>
           {movies.map((movie) => (
-            <CarouselItem key={movie?._id}>
-              <div className="relative w-3/4 mx-auto h-[400px] md:h-[600px] overflow-hidden rounded-lg bg-black">
+            <CarouselItem
+              onClick={() => router.push(`/${movie?._id}`)}
+              key={movie?._id}
+            >
+              <div className="relative w-full md:w-3/4 mx-auto h-[300px] md:h-[600px] overflow-hidden rounded-lg bg-black">
                 {/* Poster */}
                 <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -62,7 +67,7 @@ export function BannerSlider({ movies }: BannerSliderProps) {
         {/* Navigation buttons */}
         <button
           onClick={scrollPrev}
-          className="absolute left-14 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-md bg-white/90 shadow-lg transition-all hover:bg-white hover:scale-110 md:h-14 md:w-14"
+          className="absolute -left-3 md:left-14 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-md bg-white/90 shadow-lg transition-all hover:bg-white hover:scale-110 md:h-14 md:w-14"
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-6 w-6 text-blue-500 md:h-8 md:w-8" />
@@ -70,7 +75,7 @@ export function BannerSlider({ movies }: BannerSliderProps) {
 
         <button
           onClick={scrollNext}
-          className="absolute right-14 top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-md bg-white/90 shadow-lg transition-all hover:bg-white hover:scale-110 md:h-14 md:w-14"
+          className="absolute -right-3 md:right-14 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-md bg-white/90 shadow-lg transition-all hover:bg-white hover:scale-110 md:h-14 md:w-14"
           aria-label="Next slide"
         >
           <ChevronRight className="h-6 w-6 text-blue-500 md:h-8 md:w-8 " />
@@ -81,7 +86,7 @@ export function BannerSlider({ movies }: BannerSliderProps) {
           <Button
             onClick={() => smoothScroll("movie_rated")}
             size="lg"
-            className="bg-blue-600 px-12 py-6 text-base font-semibold uppercase tracking-wide hover:bg-blue-700  rounded-[50px] cursor-pointer btn-gradient"
+            className="bg-blue-600 px-6 py-3 md:px-12  md:py-6 text-base font-semibold uppercase tracking-wide hover:bg-blue-700  rounded-[50px] cursor-pointer btn-gradient"
           >
             Watch Now
           </Button>

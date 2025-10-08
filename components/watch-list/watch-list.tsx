@@ -8,8 +8,8 @@ export default function WatchList({ movies }: { movies: Movie[] }) {
   return (
     <div id="watch-list" className="py-20 max-w-[1280px] mx-auto px-6">
       {/* title */}
-      <div className="text-left mb-16">
-        <h2 className="text-4xl text-white uppercase font-semibold mb-2">
+      <div className="text-center md:text-left mb-16">
+        <h2 className="text-2xl md:text-4xl text-white uppercase font-semibold mb-2">
           your <span className="text-yellow-500">watch-list</span>
         </h2>
       </div>

@@ -69,10 +69,10 @@ export default function AllMovies({ movies }: { movies: Movie[] }) {
   };
 
   return (
-    <div className="max-w-[1280px] mx-auto py-10">
+    <div className="max-w-[1280px] mx-auto py-8 md:py-10 px-4 md:px-0">
       {/* title */}
-      <div className="text-start mb-16">
-        <h2 className="text-4xl text-[#1e8ae3] uppercase font-semibold mb-2">
+      <div className="text-start mb-10 md:mb-16">
+        <h2 className="text-2xl md:text-4xl text-[#1e8ae3] uppercase font-semibold mb-2">
           <span className="text-yellow-500">All</span> Movies
         </h2>
       </div>

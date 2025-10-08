@@ -13,7 +13,7 @@ export default function MovieDetails({ movie }: { movie: Movie }) {
       <div className="flex flex-col lg:flex-row gap-8">
         <div>
           {/* Poster */}
-          <div className="relative w-full lg:w-[400px] h-[450px] rounded-lg overflow-hidden">
+          <div className="relative w-full lg:w-[400px] h-[350px] md:h-[450px] rounded-lg overflow-hidden">
             <Image
               src={movie?.poster}
               alt={movie?.title}
@@ -47,7 +47,7 @@ export default function MovieDetails({ movie }: { movie: Movie }) {
 
         {/* Trailer + Info */}
         <div className="flex-1 space-y-5">
-          <div className="relative w-full h-[450px] rounded-lg overflow-hidden">
+          <div className="relative w-full h-[350px] md:h-[450px] rounded-lg overflow-hidden">
             <iframe
               className="w-full h-full rounded-lg"
               src={movie?.youtubeUrl}
@@ -107,7 +107,7 @@ export default function MovieDetails({ movie }: { movie: Movie }) {
           {movie?.topCast?.map((actor, idx) => (
             <div
               key={idx}
-              className="bg-[#121317] rounded-lg p-4 flex items-center gap-4 text-left shadow-md hover:shadow-lg hover:bg-[#1a1c22] transition"
+              className="bg-[#121317] rounded-lg p-4 flex flex-col md:flex-row items-center gap-4 text-left shadow-md hover:shadow-lg hover:bg-[#1a1c22] transition"
             >
               <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
                 <Image

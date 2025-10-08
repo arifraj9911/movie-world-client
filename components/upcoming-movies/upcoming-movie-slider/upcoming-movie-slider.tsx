@@ -64,13 +64,13 @@ export default function UpcomingMovieSlider({
           640: { slidesPerView: 3 },
           1024: { slidesPerView: 5 },
         }}
-        className="w-full h-[450px]"
+        className="w-full h-[500px] "
       >
         {movies.map((movie, index) => (
           <SwiperSlide
             onClick={() => router.push(`/${movie?._id}`)}
             key={movie.id}
-            className="flex justify-center mt-10 cursor-pointer"
+            className="flex justify-center mt-6 md:mt-10 cursor-pointer  px-8 md:px-0"
           >
             <div
               className={`relative transition-transform duration-300 ease-in-out
@@ -90,7 +90,7 @@ export default function UpcomingMovieSlider({
                   alt={movie?.title}
                   width={250}
                   height={350}
-                  className={`w-[200px] md:w-full h-[200px] md:h-[350px] object-cover`}
+                  className={`w-full h-[300px] md:h-[350px] object-cover`}
                   priority={activeIndex === index}
                 />
               </div>

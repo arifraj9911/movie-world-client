@@ -55,6 +55,12 @@ const MovieSlider: FC<MovieSliderProps> = ({ movies, movieRated }) => {
           prevEl: ".swiper-button-prev",
           nextEl: ".swiper-button-next",
         }}
+        breakpoints={{
+          0: { slidesPerView: 1 },
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 5 },
+        }}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
       >
         {movies.map((movie, index) => (

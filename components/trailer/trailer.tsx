@@ -8,7 +8,7 @@ import { smoothScroll } from "@/utils/smooth-scroll";
 
 export default function Trailer() {
   return (
-    <section className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-20 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 -mt-32 md:mt-0 py-10 md:py-20 px-6 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
@@ -19,17 +19,17 @@ export default function Trailer() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6">
-            <h2 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
+            <h2 className="text-4xl lg:text-6xl font-bold text-white leading-tight">
               ENJOY IT <span className="text-yellow-500">MOVIES</span>
             </h2>
-            <p className="text-gray-400 text-lg leading-relaxed max-w-md">
+            <p className="text-gray-400 text-sm md:text-lg leading-relaxed max-w-md">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Iaculis
               mollis suscipit maecenas amet eget.
             </p>
             <Button
             onClick={()=>smoothScroll('movie_rated')}
               size="lg"
-              className=" text-white px-8 py-6 text-base font-semibold rounded-full btn-gradient"
+              className=" text-white px-4 md:px-8 py-3 md:py-6 text-base font-semibold rounded-full btn-gradient"
             >
               WATCH NOW
             </Button>
